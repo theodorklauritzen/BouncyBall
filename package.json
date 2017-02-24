@@ -1,0 +1,32 @@
+{
+  "name": "bouncyball",
+  "version": "1.0.0",
+  "description": "This is a game that uses socket.io, express and p5.js.  The game has a ball thta bounces on the boxes.",
+  "main": "index.js",
+  "scripts": {
+    "start": "index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xupertheo/BouncyBall.git"
+  },
+  "keywords": [
+    "node",
+    "socket",
+    "socket.io",
+    "express",
+    "expressjs",
+    "ball",
+    "game",
+    "p5.js",
+    "p5js",
+    "html5"
+  ],
+  "author": "xupertheo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/xupertheo/BouncyBall/issues"
+  },
+  "homepage": "https://github.com/xupertheo/BouncyBall#readme"
+}
