@@ -12,6 +12,9 @@ app.use(function(req, res, next) {
 });
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, function() {
+var server = app.listen(PORT, function() {
   console.log("started at port: " + PORT);
 });
+
+var socket = require("./socket.js");
+socket(server);
