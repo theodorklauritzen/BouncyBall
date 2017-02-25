@@ -23,6 +23,7 @@ function setUrl(newUrl) {
   }, 500);
 }
 
+<<<<<<< HEAD
 function setup() {
   createCanvas(windowWidth, windowHeight);
 
@@ -44,6 +45,8 @@ function draw() {
   runCode();
 }
 
+=======
+>>>>>>> reload
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
 }
