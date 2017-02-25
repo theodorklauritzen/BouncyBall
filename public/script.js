@@ -27,7 +27,7 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
 
   socket.on("getCode", function (data) {
-    console.log(data);
+    //console.log(data);
     if(data.url) {
       url = data.url;
       eval(data.draw);
