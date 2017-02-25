@@ -43,3 +43,7 @@ function setup() {
 function draw() {
   runCode();
 }
+
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
+}
