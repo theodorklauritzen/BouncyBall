@@ -14,31 +14,32 @@ var runCode = function(socket) {
 var url = "";
 function setUrl(newUrl) {
 
-  var runned = false;
-  socket.on("getCode" + newUrl, function (data) {
-    if(!runned) {
-      runned = true;
-      if(data.url) {
-        url = data.url;
-        runCode = data.draw;
-        data.setup(socket);
-      }
-    }
-  });
-
   socket.emit("getCode", newUrl);
 
   setTimeout(function () {
-    console.error("the code would not load.  The timeout was on 500 ms.");
+    if(url != newUrl) {
+      console.error("the code would not load.  The timeout was on 500 ms.");
+    }
   }, 500);
 }
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
 
+  socket.on("getCode", function (data) {
+    console.log(data);
+    if(data.url) {
+      url = data.url;
+      eval(data.draw);
+      runCode = Sdraw;
+      eval(data.setup);
+      Ssetup();
+    }
+  });
+
   setUrl("/startup");
 }
 
 function draw() {
-  runCode(socket);
+  runCode();
 }

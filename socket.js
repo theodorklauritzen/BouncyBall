@@ -9,20 +9,21 @@ module.exports = function(server) {
     socket.on("getCode", function(data) {
       var paths = {};
 
-      paths["/startup"] = parseCode(function(socket) {
+      paths["/startup"] = parseCode(function Ssetup() {
         console.log("setup");
-      }, function(socket) {
+      }, function Sdraw() {
+        background(255);
         console.log("draw");
       });
-
-      console.log(paths.hasOwnProperty(data));
 
       if(paths.hasOwnProperty(data)) {
         var send = paths[data];
         send.url = data;
-        socket.emit("getCode" + data, send)
+        send.setup = send.setup.toString();
+        send.draw = send.draw.toString();
+        socket.emit("getCode", send)
       } else {
-        socket.emit("getCode" + data, {
+        socket.emit("getCode", {
           url: null,
           setup: null,
           draw: null
