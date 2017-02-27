@@ -11,3 +11,7 @@ function loadImg(name) {
   var path = startPath + name + endPath;
   img[name] = loadImage(path);
 }
+
+(function() {
+  createCanvas(windowWidth, windowHeight);
+})();
