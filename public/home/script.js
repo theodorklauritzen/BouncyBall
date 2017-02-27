@@ -18,6 +18,8 @@ var sellvl = 0;
 var level;
 var numOfLevels = 0;
 function setup() {
+  createCanvas(windowWidth, windowHeight);
+
   textFont(font, 36);
 
   loadLevel(0);

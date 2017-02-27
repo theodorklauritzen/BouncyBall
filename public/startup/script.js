@@ -2,6 +2,8 @@
 
 
 function setup() {
+  createCanvas(windowWidth, windowHeight);
+
   setTimeout(function() {
     window.location.href = "/home/";
   }, 3000);
