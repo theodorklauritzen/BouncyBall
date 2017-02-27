@@ -50,6 +50,13 @@ function draw() {
 
   image(img.arrowR, width - 240 - ImgMargin, height / 2 - img.arrowR.height / 2);
   image(img.arrowL, ImgMargin, height / 2 - img.arrowL.height / 2);
+
+  if(sellvl === numOfLevels - 1) {
+    image(img.X, width - 240 - ImgMargin, height / 2 - img.X.height / 2);
+  }
+  if(sellvl === 0) {
+    image(img.X, ImgMargin, height / 2 - img.X.height / 2);
+  }
 }
 
 function mousePressed() {
