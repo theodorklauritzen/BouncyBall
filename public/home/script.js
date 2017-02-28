@@ -42,11 +42,15 @@ function draw() {
   textSize(300);
   text(level.num, width / 2, height / 2 + 100);
 
-  textSize(80);
-  level.name = "name"
-  level.by = "authour";
-  text(level.name, width / 2, 200);
-  text(level.by, width / 2, height / 2 + 230);
+  if(!level.parsedData) {
+    level.parseData();
+  }
+
+  if(level.parsedData) {
+    textSize(80);
+    text(level.name, width / 2, 200);
+    text(level.by, width / 2, height / 2 + 230);
+  }
 
   image(img.arrowR, width - 240 - ImgMargin, height / 2 - img.arrowR.height / 2);
   image(img.arrowL, ImgMargin, height / 2 - img.arrowL.height / 2);
