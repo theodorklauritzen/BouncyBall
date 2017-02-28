@@ -5,8 +5,8 @@ function Level(_num) {
   var ending = ".json";
   this.rawData = loadJSON(path + this.num + ending);
 
-  this.name = "not parsed";
-  this.by = "not parsed";
+  this.name = "loading ...";
+  this.by = "loading ...";
 
   this.parsedData = false;
 
@@ -25,4 +25,11 @@ function Level(_num) {
       return soucre.parsedData;
     }
   }, 1);
+}
+
+Level.prototype.setupDraw = function() {
+  this.shapes = [];
+  for (var i = 0; i < this.rawData.shapes.length; i++) {
+    this.shapes.push(new Shape(this.rawData.shapes[i]));
+  }
 }
