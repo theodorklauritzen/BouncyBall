@@ -9,13 +9,20 @@ function Level(_num) {
   this.by = "not parsed";
 
   this.parsedData = false;
-}
 
-Level.prototype.parseData = function() {
-  if(this.rawData.name != undefined && this.rawData.by != undefined) {
-    this.name = this.rawData.name;
-    this.by = this.rawData.by;
-    this.parsedData = true;
-  }
-  return this.parsedData;
+  var soucre = this;
+  var interval = setInterval(function() {
+    if(parseData()) {
+      clearInterval(interval);
+    }
+
+    function parseData() {
+      if(soucre.rawData.name != undefined && soucre.rawData.by != undefined) {
+        soucre.name = soucre.rawData.name;
+        soucre.by = soucre.rawData.by;
+        soucre.parsedData = true;
+      }
+      return soucre.parsedData;
+    }
+  }, 1);
 }
