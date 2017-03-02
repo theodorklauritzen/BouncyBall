@@ -1,4 +1,19 @@
 {
   "name": "Tutorial",
-  "by": "xupertheo"
+  "by": "xupertheo",
+  "shapes": [
+    {
+      "type": "rect",
+      "corners": [
+        {
+          "x": 100,
+          "y": 100
+        },
+        {
+          "x": 200,
+          "y": 200
+        }
+      ]
+    }
+  ]
 }

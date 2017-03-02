@@ -10,26 +10,32 @@ function Level(_num) {
 
   this.parsedData = false;
 
-  var soucre = this;
+  var source = this;
   var interval = setInterval(function() {
     if(parseData()) {
       clearInterval(interval);
+
+      source.shapes = [];
+      for (var i = 0; i < source.rawData.shapes.length; i++) {
+        source.shapes.push(new Shape(source.rawData.shapes[i]));
+      }
     }
 
     function parseData() {
-      if(soucre.rawData.name != undefined && soucre.rawData.by != undefined) {
-        soucre.name = soucre.rawData.name;
-        soucre.by = soucre.rawData.by;
-        soucre.parsedData = true;
+      if(source.rawData.name != undefined && source.rawData.by != undefined) {
+        source.name = source.rawData.name;
+        source.by = source.rawData.by;
+        source.parsedData = true;
       }
-      return soucre.parsedData;
+      return source.parsedData;
     }
+
+    this.shapes = [];
   }, 1);
 }
 
-Level.prototype.setupDraw = function() {
-  this.shapes = [];
-  for (var i = 0; i < this.rawData.shapes.length; i++) {
-    this.shapes.push(new Shape(this.rawData.shapes[i]));
+Level.prototype.show = function () {
+  for (var i = 0; i < this.shapes.length; i++) {
+    this.shapes[i].show();
   }
 }

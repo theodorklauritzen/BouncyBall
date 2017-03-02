@@ -9,9 +9,8 @@ function preload() {
 var ball;
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  console.log(level);
 }
 
 function draw() {
-
+  level.show();
 }
