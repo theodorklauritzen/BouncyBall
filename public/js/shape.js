@@ -2,9 +2,7 @@ function Shape(data) {
   this.type = data.type;
 
   // change the corners to the value goes from 0 to 1000
-  var stop = false;
-  while(!stop) {
-    console.log(width && height);
+  var interval = setInterval(function() {
     if(width && height) {
       for(var i = 0; i < data.corners.length; i++) {
         data.corners[i] = {
@@ -12,9 +10,10 @@ function Shape(data) {
           y: data.corners[i].y * height / 1000
         }
       }
-      stop = true;
+      console.log(data.corners);
+      clearInterval(interval);
     }
-  }
+  }, 1);
 
   this.corners = [];
 
