@@ -3,7 +3,6 @@ function Shape(data) {
 
   // change the corners to the value goes from 0 to 1000
   var interval = setInterval(function() {
-    console.log(width && height);
     if(width && height) {
       for(var i = 0; i < data.corners.length; i++) {
         data.corners[i] = {
