@@ -19,6 +19,27 @@ function Level(_num) {
       for (var i = 0; i < source.rawData.shapes.length; i++) {
         source.shapes.push(new Shape(source.rawData.shapes[i]));
       }
+
+      var ballDat = source.rawData.ball;
+      if(!ballDat) {
+        ballDat = {};
+      }
+
+      var defaultOptions = {
+        x: 100,
+        y: 500,
+        moveable: true
+      };
+
+      for(var i in defaultOptions) {
+        if(!ballDat[i]) {
+          ballDat[i] = defaultOptions[i];
+        }
+      }
+
+      source.ball = new Ball(createVector(ballDat.x, ballDat.y), 30, "#666666", ballDat.moveable);
+
+      console.log(source);
     }
 
     function parseData() {
@@ -29,8 +50,6 @@ function Level(_num) {
       }
       return source.parsedData;
     }
-
-    this.shapes = [];
   }, 1);
 }
 
@@ -38,4 +57,6 @@ Level.prototype.show = function () {
   for (var i = 0; i < this.shapes.length; i++) {
     this.shapes[i].show();
   }
+
+  this.ball.show();
 }

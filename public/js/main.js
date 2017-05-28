@@ -11,3 +11,14 @@ function loadImg(name) {
   var path = startPath + name + endPath;
   img[name] = loadImage(path);
 }
+
+function pixelScale() {
+  var ret = {
+    x: width / 1000,
+    y: height / 1000
+  };
+
+  ret.avg = (ret.x + ret.y) / 2
+
+  return ret;
+}

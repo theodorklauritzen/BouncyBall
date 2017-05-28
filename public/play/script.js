@@ -6,11 +6,11 @@ function preload() {
   level = new Level(getURLParams().lvl);
 }
 
-var ball;
 function setup() {
   createCanvas(windowWidth, windowHeight);
 }
 
 function draw() {
+  background(255);
   level.show();
 }

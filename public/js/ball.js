@@ -1,4 +1,4 @@
-function Ball(_pos, _d, _color) {
+function Ball(_pos, _d, _color, _moveable) {
   //check if the ball image is loaded
   if(!img.ball) {
     throw new Error("You must load the ball image!");
@@ -9,11 +9,18 @@ function Ball(_pos, _d, _color) {
   this.d = _d;
 
   this.color = _color;
+
+  this.moveable = _moveable || false;
 }
 
 Ball.prototype.show = function() {
+  var d = pixelScale().avg * this.d;
+
+  var x = pixelScale().x * this.pos.x;
+  var y = pixelScale().y * this.pos.y;
+
   fill(this.color);
   noStroke();
-  ellipse(this.pos.x, this.pos.y, this.d - this.d / 25, this.d - this.d / 25);
-  image(img.ball, this.pos.x - this.d / 2, this.pos.y - this.d / 2, this.d, this.d);
+  ellipse(x, y, d - d / 25, d - d / 25);
+  image(img.ball, x - d / 2, y - d / 2, d, d);
 }

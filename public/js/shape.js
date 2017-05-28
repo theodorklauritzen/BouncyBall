@@ -37,7 +37,9 @@ Shape.prototype.show = function() {
   noStroke()
   beginShape()
   for (var i = 0; i < this.corners.length; i++) {
-    vertex(this.corners[i].x, this.corners[i].y);
+    var x = width / 1000 * this.corners[i].x;
+    var y = height / 1000 * this.corners[i].y;
+    vertex(x, y);
   }
   endShape(CLOSE);
 }
